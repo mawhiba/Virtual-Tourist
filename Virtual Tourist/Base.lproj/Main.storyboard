@@ -45,7 +45,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c08-M1-pCq" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="MPK-oj-PX9">
                     <connections>
-                        <action selector="longPressGesture:" destination="TrI-1Z-OGX" id="v4u-wd-4hD"/>
+                        <action selector="longPressGestureWithSender:" destination="TrI-1Z-OGX" id="iHr-7U-LIB"/>
                     </connections>
                 </pongPressGestureRecognizer>
             </objects>
@@ -74,37 +74,47 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="B5L-3p-8en"/>
                                 </items>
                             </toolbar>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="i78-gI-DQB">
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="i78-gI-DQB">
                                 <rect key="frame" x="177.5" y="635" width="20" height="20"/>
                             </activityIndicatorView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="gFx-Yf-jhw">
                                 <rect key="frame" x="0.0" y="64" width="375" height="559"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="mLG-QU-icI">
-                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="itemSize" width="100" height="100"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="jU6-GB-ZQh">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="imgCell" id="jU6-GB-ZQh" customClass="imgCell" customModule="Virtual_Tourist" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6W4-WT-T3P">
-                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6W4-WT-T3P" customClass="imageViewAlbum" customModule="Virtual_Tourist" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                                 </imageView>
+                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Jya-zf-mk0">
+                                                    <rect key="frame" x="31.5" y="31.5" width="37" height="37"/>
+                                                    <color key="color" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </activityIndicatorView>
                                             </subviews>
                                         </view>
                                         <constraints>
                                             <constraint firstItem="6W4-WT-T3P" firstAttribute="top" secondItem="jU6-GB-ZQh" secondAttribute="top" id="0yr-hJ-EDb"/>
+                                            <constraint firstItem="Jya-zf-mk0" firstAttribute="centerY" secondItem="jU6-GB-ZQh" secondAttribute="centerY" id="3UU-Al-Lkn"/>
                                             <constraint firstItem="6W4-WT-T3P" firstAttribute="leading" secondItem="jU6-GB-ZQh" secondAttribute="leading" id="OOY-5S-jtE"/>
                                             <constraint firstAttribute="trailing" secondItem="6W4-WT-T3P" secondAttribute="trailing" id="Sb5-5o-NTi"/>
+                                            <constraint firstItem="Jya-zf-mk0" firstAttribute="centerX" secondItem="jU6-GB-ZQh" secondAttribute="centerX" id="YvL-t5-a60"/>
                                             <constraint firstAttribute="bottom" secondItem="6W4-WT-T3P" secondAttribute="bottom" id="ZVe-eT-dwc"/>
                                         </constraints>
+                                        <connections>
+                                            <outlet property="imgView" destination="6W4-WT-T3P" id="RAf-XY-bIi"/>
+                                            <outlet property="loadingIndicator" destination="Jya-zf-mk0" id="2GY-MH-a33"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
@@ -144,7 +154,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g1e-sA-kFh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2026" y="189"/>
+            <point key="canvasLocation" x="2024.8" y="188.45577211394306"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="xQI-Hf-zpq">

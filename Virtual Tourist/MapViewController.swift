@@ -27,7 +27,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, NSFetchedResultsCo
         
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
         
-        fetchResultController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: DataController.shared.viewContext, sectionNameKeyPath: nil, cacheName: nil)
+        fetchResultController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: DataController.shared.viewContext, sectionNameKeyPath: nil, cacheName: "pins")
         fetchResultController.delegate = self
         
         do {
@@ -74,7 +74,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, NSFetchedResultsCo
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        addMapAnnotations()
+        loadPins()
+        
     }
     
     override func viewDidDisappear(_ animated: Bool) {

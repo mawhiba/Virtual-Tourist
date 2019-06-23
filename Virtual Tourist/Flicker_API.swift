@@ -20,19 +20,19 @@ struct Flicker_API {
         
         //MARK: get bbox :
         let minLatitude = max((coordinates.latitude) - 1.0 , -90.0)
-        let maxLatitude = min((coordinates.latitude) - 1.0 , 90.0)
+        let maxLatitude = min((coordinates.latitude) + 1.0 , 90.0)
         let minLogitude = max((coordinates.longitude) - 1.0 , -180)
-        let maxLongitude = min((coordinates.longitude) - 1.0 , 180)
+        let maxLongitude = min((coordinates.longitude) + 1.0 , 180)
         let bbox = "\(minLogitude),\(minLatitude),\(maxLongitude),\(maxLatitude)"
         
         //MARK: URL Parameters :
         let parameters = [
-            "method" : "flicker.photos.search",
+            "method" : "flickr.photos.search",
             "api_key" : "a72f3dc708c41c39ae7f4f4adb680e48",
             "bbox" : bbox ,
             "safe_search" : "1",
             "extras" : "url_m",
-            "Format" : "json" ,
+            "format" : "json" ,
             "nojsoncallback" : "1",
             "page" : pageNo ,
             "per_page" : 6
@@ -109,7 +109,7 @@ struct Flicker_API {
     static func formatURLComponent (from params: [String:Any]) -> URL {
         var urlComponent = URLComponents()
         urlComponent.scheme = "https"
-        urlComponent.host = "api.flicker.com"
+        urlComponent.host = "api.flickr.com"
         urlComponent.path = "/services/rest"
         urlComponent.queryItems = [URLQueryItem]()
         
