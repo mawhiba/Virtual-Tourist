@@ -12,7 +12,9 @@
 		493E5CB622B9879D00EF6900 /* Photo-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493E5CB522B9879D00EF6900 /* Photo-Extension.swift */; };
 		493E5CB822B987E400EF6900 /* Pin-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493E5CB722B987E400EF6900 /* Pin-Extension.swift */; };
 		493E5CBA22B9902300EF6900 /* Flicker_API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493E5CB922B9902300EF6900 /* Flicker_API.swift */; };
+		4972835322C0F5AF00107106 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4972835222C0F5AF00107106 /* LoginVC.swift */; };
 		4981387F22BC6A0F00EB03DC /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4981387E22BC6A0F00EB03DC /* Extension.swift */; };
+		498264F622C11A6D00B563C0 /* UdacityAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498264F522C11A6D00B563C0 /* UdacityAPI.swift */; };
 		498B4BB322BD87A100F3F594 /* imageViewAlbum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498B4BB222BD87A100F3F594 /* imageViewAlbum.swift */; };
 		498B4BB522BD886B00F3F594 /* imgCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498B4BB422BD886B00F3F594 /* imgCell.swift */; };
 		49F8F0EF22B85C72005FA446 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F8F0EE22B85C72005FA446 /* AppDelegate.swift */; };
@@ -42,7 +44,9 @@
 		493E5CB522B9879D00EF6900 /* Photo-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Photo-Extension.swift"; sourceTree = "<group>"; };
 		493E5CB722B987E400EF6900 /* Pin-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Pin-Extension.swift"; sourceTree = "<group>"; };
 		493E5CB922B9902300EF6900 /* Flicker_API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flicker_API.swift; sourceTree = "<group>"; };
+		4972835222C0F5AF00107106 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		4981387E22BC6A0F00EB03DC /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		498264F522C11A6D00B563C0 /* UdacityAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UdacityAPI.swift; sourceTree = "<group>"; };
 		498B4BB222BD87A100F3F594 /* imageViewAlbum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imageViewAlbum.swift; sourceTree = "<group>"; };
 		498B4BB422BD886B00F3F594 /* imgCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imgCell.swift; sourceTree = "<group>"; };
 		49F8F0EB22B85C72005FA446 /* Virtual Tourist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Virtual Tourist.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -99,9 +103,11 @@
 		49F8F0ED22B85C72005FA446 /* Virtual Tourist */ = {
 			isa = PBXGroup;
 			children = (
+				4972835222C0F5AF00107106 /* LoginVC.swift */,
 				49F8F0EE22B85C72005FA446 /* AppDelegate.swift */,
 				49F8F0F022B85C72005FA446 /* ViewController.swift */,
 				49F8F0F222B85C72005FA446 /* Main.storyboard */,
+				498264F522C11A6D00B563C0 /* UdacityAPI.swift */,
 				498B4BB422BD886B00F3F594 /* imgCell.swift */,
 				493E5CB322B941A000EF6900 /* DataController.swift */,
 				49F8F11322B87C19005FA446 /* PhotoCollectionVC.swift */,
@@ -232,6 +238,7 @@
 			files = (
 				493E5CB422B941A000EF6900 /* DataController.swift in Sources */,
 				49F8F0F122B85C72005FA446 /* ViewController.swift in Sources */,
+				4972835322C0F5AF00107106 /* LoginVC.swift in Sources */,
 				498B4BB322BD87A100F3F594 /* imageViewAlbum.swift in Sources */,
 				493E5CB822B987E400EF6900 /* Pin-Extension.swift in Sources */,
 				493E5CBA22B9902300EF6900 /* Flicker_API.swift in Sources */,
@@ -243,6 +250,7 @@
 				49F8F11222B87B47005FA446 /* MapViewController.swift in Sources */,
 				493E5CAF22B9394000EF6900 /* VirtualTouristDataModel.xcdatamodeld in Sources */,
 				49F8F11422B87C19005FA446 /* PhotoCollectionVC.swift in Sources */,
+				498264F622C11A6D00B563C0 /* UdacityAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

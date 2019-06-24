@@ -88,6 +88,19 @@ class MapViewController: UIViewController, MKMapViewDelegate, NSFetchedResultsCo
     }
     
     
+    @IBAction func signOut(_ sender: Any) {
+        UdacityAPI.deleteSession { (error) in
+            if let error = error {
+                self.alert(title: "Error", message: error.localizedDescription)
+                return
+            }
+            DispatchQueue.main.async {
+                self.dismiss(animated: true, completion: nil)
+            }
+        }
+    }
+    
+    
 }
 
 
