@@ -16,18 +16,13 @@ class MapViewController: UIViewController, MKMapViewDelegate, NSFetchedResultsCo
     @IBOutlet var mapUIView: MKMapView!
     var fetchResultController : NSFetchedResultsController<Pin>!
     
-    //    var vContext: NSManagedObjectContext {
-    //        return DataController.shared.viewContext
-    //    }
-    
-    
     func loadPins() {
         let fetchRequest : NSFetchRequest<Pin>
         fetchRequest = Pin.fetchRequest()
         
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
         
-        fetchResultController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: DataController.shared.viewContext, sectionNameKeyPath: nil, cacheName: "pins")
+        fetchResultController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: DataController.shared.viewContext, sectionNameKeyPath: nil, cacheName: nil)
         fetchResultController.delegate = self
         
         do {
@@ -40,16 +35,18 @@ class MapViewController: UIViewController, MKMapViewDelegate, NSFetchedResultsCo
     }
     
     func addMapAnnotations() {
-        let annotaions = MKPointAnnotation()
+        var annotaions = [MKPointAnnotation]()
         
         guard let pins = fetchResultController.fetchedObjects else {return}
 
         for pin in pins {
             if mapUIView.annotations.contains(where: { pin.compare(to: $0.coordinate)}) {continue}
-            //don't forget to try another way
-            annotaions.coordinate = pin.coordinate
-            mapUIView.addAnnotation(annotaions)
+            
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = pin.coordinate
+            annotaions.append(annotation)
         }
+        mapUIView.addAnnotations(annotaions)
     }
     
     func  mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {

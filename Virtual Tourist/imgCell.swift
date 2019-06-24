@@ -12,6 +12,5 @@ import UIKit
 class imgCell: UICollectionViewCell {
     
     @IBOutlet var imgView: imageViewAlbum!
-    @IBOutlet var loadingIndicator: UIActivityIndicatorView!
     
 }

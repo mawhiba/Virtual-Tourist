@@ -25,11 +25,6 @@ class PhotoCollectionVC: UIViewController, UICollectionViewDelegateFlowLayout, U
         return (fetchResultController.fetchedObjects?.count ?? 0 ) != 0
     }
 
-//    if (fetchResultController.fetchedObjects?.count) != 0 {
-//        checkPhotoAvailability = true
-//    } else {
-//        checkPhotoAvailability = false
-//    }
     
     func viewPhotos() {
         let fetchRequest: NSFetchRequest<Photo>
@@ -38,7 +33,7 @@ class PhotoCollectionVC: UIViewController, UICollectionViewDelegateFlowLayout, U
         fetchRequest.predicate = NSPredicate(format: "pin == %@", pin)
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
         
-        fetchResultController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: DataController.shared.viewContext, sectionNameKeyPath: nil, cacheName: "photosCollection")
+        fetchResultController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: DataController.shared.viewContext, sectionNameKeyPath: nil, cacheName: nil)
         
         fetchResultController.delegate = self
         
@@ -64,12 +59,7 @@ class PhotoCollectionVC: UIViewController, UICollectionViewDelegateFlowLayout, U
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionUIView.dequeueReusableCell(withReuseIdentifier: "imgCell", for: indexPath) as? imgCell {
             let photo = fetchResultController.object(at: indexPath)
-            if let img = photo.getImg() {
-                cell.imgView.image = img
-            } else {
-                cell.loadingIndicator.startAnimating()
-                cell.imgView.loadFrom(photo: photo)
-            }
+            cell.imgView.loadFrom(photo: photo)
             return cell
         } else {
             return UICollectionViewCell()
@@ -113,6 +103,9 @@ class PhotoCollectionVC: UIViewController, UICollectionViewDelegateFlowLayout, U
                 
                 if (error == nil) && (errMsg == nil) {
                     if urls != nil {
+                        
+                        self.noImageLabel.isHidden = !urls!.isEmpty
+                        
                         for url in urls! {
                             let img = Photo(context: DataController.shared.viewContext)
                             img.imgURL = url
@@ -149,6 +142,8 @@ class PhotoCollectionVC: UIViewController, UICollectionViewDelegateFlowLayout, U
     }
     
     func updateUI(processing: Bool) {
+        self.noImageLabel.isHidden = checkPhotoAvailability
+        
         collectionUIView.isUserInteractionEnabled = !processing
         if processing {
             newCollectionBarButton.title = ""

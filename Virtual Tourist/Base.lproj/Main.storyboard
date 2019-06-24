@@ -97,23 +97,16 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6W4-WT-T3P" customClass="imageViewAlbum" customModule="Virtual_Tourist" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                                 </imageView>
-                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Jya-zf-mk0">
-                                                    <rect key="frame" x="31.5" y="31.5" width="37" height="37"/>
-                                                    <color key="color" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </activityIndicatorView>
                                             </subviews>
                                         </view>
                                         <constraints>
                                             <constraint firstItem="6W4-WT-T3P" firstAttribute="top" secondItem="jU6-GB-ZQh" secondAttribute="top" id="0yr-hJ-EDb"/>
-                                            <constraint firstItem="Jya-zf-mk0" firstAttribute="centerY" secondItem="jU6-GB-ZQh" secondAttribute="centerY" id="3UU-Al-Lkn"/>
                                             <constraint firstItem="6W4-WT-T3P" firstAttribute="leading" secondItem="jU6-GB-ZQh" secondAttribute="leading" id="OOY-5S-jtE"/>
                                             <constraint firstAttribute="trailing" secondItem="6W4-WT-T3P" secondAttribute="trailing" id="Sb5-5o-NTi"/>
-                                            <constraint firstItem="Jya-zf-mk0" firstAttribute="centerX" secondItem="jU6-GB-ZQh" secondAttribute="centerX" id="YvL-t5-a60"/>
                                             <constraint firstAttribute="bottom" secondItem="6W4-WT-T3P" secondAttribute="bottom" id="ZVe-eT-dwc"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="imgView" destination="6W4-WT-T3P" id="RAf-XY-bIi"/>
-                                            <outlet property="loadingIndicator" destination="Jya-zf-mk0" id="2GY-MH-a33"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>

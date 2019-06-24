@@ -13,8 +13,10 @@ class DataController {
     
     static let shared = DataController()
     
+    // هذا الوعاء
     let persistentContainer = NSPersistentContainer(name: "VirtualTouristDataModel")
     
+    //هذي فتحة الوعاء اللي نقدر من خلالها نضيف بيانات للوعاء أو نحذف بيانات أو نسترجع بيانات
     var viewContext: NSManagedObjectContext {
         return persistentContainer.viewContext
     }

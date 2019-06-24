@@ -19,10 +19,10 @@ struct Flicker_API {
     static func photosURL(with coordinates: CLLocationCoordinate2D, pageNo: Int, completion: @escaping ([URL]? , Error? , String?) -> ()){
         
         //MARK: get bbox :
-        let minLatitude = max((coordinates.latitude) - 1.0 , -90.0)
-        let maxLatitude = min((coordinates.latitude) + 1.0 , 90.0)
-        let minLogitude = max((coordinates.longitude) - 1.0 , -180)
-        let maxLongitude = min((coordinates.longitude) + 1.0 , 180)
+        let minLatitude = max((coordinates.latitude) - 0.5 , -90.0)
+        let maxLatitude = min((coordinates.latitude) + 0.5 , 90.0)
+        let minLogitude = max((coordinates.longitude) - 0.5 , -180)
+        let maxLongitude = min((coordinates.longitude) + 0.5 , 180)
         let bbox = "\(minLogitude),\(minLatitude),\(maxLongitude),\(maxLatitude)"
         
         //MARK: URL Parameters :

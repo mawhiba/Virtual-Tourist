@@ -22,13 +22,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         DataController.shared.load()
         return true
     }
-    
-//    func saveViewContext() {
-//        try? dataController.viewContext.save()
-//    }
+
     
     func saveViewContext() {
-        try? DataController.shared.viewContext.save()   
+        try? DataController.shared.viewContext.save()
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
