@@ -56,15 +56,15 @@ struct Flicker_API {
                         return
                     }
                     guard let resultStatus = dataResult["stat"] as? String , resultStatus == "ok" else {
-                        completion(nil,error?.localizedDescription as? Error, nil)
+                        completion(nil,nil , "Flickr API returned an error. see error code and message in \(dataResult)")
                         return
                     }
                     guard let imgDict = dataResult["photos"] as? [String : Any] else {
-                        completion(nil,error?.localizedDescription as? Error, nil)
+                        completion(nil,nil , "Can not find key 'photos' in \(dataResult)")
                         return
                     }
                     guard let imgArray = imgDict["photo"] as? [[String : Any]]  else {
-                        completion(nil,error?.localizedDescription as? Error, nil)
+                        completion(nil,nil, "Can not find key 'photo' in \(dataResult)")
                         return
                     }
     
